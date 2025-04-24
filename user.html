@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Status Produk</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label, select {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .status-display {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Status Produk Anda</h2>
+
+  <label for="productSelect">Pilih Produk:</label>
+  <select id="productSelect">
+    <option value="">Pilih Produk</option>
+    <option value="Produk 1">Produk 1</option>
+    <option value="Produk 2">Produk 2</option>
+    <option value="Produk 3">Produk 3</option>
+  </select>
+
+  <div class="status-display" id="statusDisplay">
+    Status produk akan ditampilkan di sini.
+  </div>
+</div>
+
+<script>
+  const select = document.getElementById('productSelect');
+  const display = document.getElementById('statusDisplay');
+
+  select.addEventListener('change', function () {
+    const selectedProduct = select.value;
+    const savedStatus = localStorage.getItem(selectedProduct);
+
+    if (savedStatus) {
+      display.textContent = `Status "${selectedProduct}": ${savedStatus}`;
+    } else {
+      display.textContent = "Belum ada status untuk produk ini.";
+    }
+  });
+</script>
+
+</body>
+</html>
