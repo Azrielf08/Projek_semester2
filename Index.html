@@ -1,118 +1,93 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toko Roti</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First bites</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
-      padding: 0;
-    }
-
-    body, html {
-      height: 100%;
       font-family: 'Segoe UI', sans-serif;
-    }
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: flex-end;
-      z-index: 10;
-    }
-
-    .signin-btn {
-      background-color: #cf2dcf;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: background 0.3s ease;
-      text-decoration: none;
-    }
-
-    .signin-btn:hover {
-      background-color: #a01fa0;
-    }
-
-    .hero {
-      background-image: url("bread.jpg");
+      background: url('4832aa918c1256d934facd4bd02263a8.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      height: 100vh;
+    }
+    .overlay {
+      background: rgba(255, 248, 230, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 50px;
+      margin: 50px auto;
+      max-width: 800px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    nav {
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      position: relative;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
-
-    .hero-content {
-      z-index: 2;
-      max-width: 700px;
-      padding: 20px;
+    .login-button {
+      background: transparent;
+      border: 2px solid #d2691e;
+      color: #d2691e;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-right: 20px;
+      cursor: pointer;
+      font-weight: bold;
     }
-
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
+    .login-button:hover {
+      background: #d2691e;
+      color: white;
     }
-
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+    h1 {
+      font-size: 2.5em;
+      color: #5c3317;
     }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1em;
-      }
-
-      header {
-        padding: 10px 20px;
-      }
-
-      .signin-btn {
-        padding: 8px 16px;
-        font-size: 0.9em;
-      }
+    p {
+      color: #5c3317;
+      max-width: 500px;
+    }
+    .btn {
+      background: #d2691e;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #a0522d;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <a href="login.html" class="signin-btn">SIGN IN</a>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Toko Roti Kami</h1>
-      <p>Roti segar setiap hari, dibuat dengan cinta dan bahan terbaik.</p>
-    </div>
-  </section>
-
+  <div class="overlay">
+    <header>
+      <h2>First bites</h2>
+      <nav>
+        <button class="login-button" onclick="alert('Selamat datang')">Login</button>
+        <a href="#">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Kontak</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Rasakan manisnya kebahagiaan dalam setiap gigitan</h1>
+      <p>Kami menyediakan berbagai pilihan kue manis dan gurih untuk melengkapi momen spesial Anda. Cek diprofil kami sekarang!</p>
+      <button class="btn">Belanja Sekarang</button>
+    </main>
+  </div>
 </body>
 </html>
