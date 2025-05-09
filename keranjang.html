@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keranjang</title>
+  <style>
+    .produk {
+      display: inline-block;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 150px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .produk img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .keranjang {
+      margin-top: 30px;
+      border-top: 2px solid black;
+      padding-top: 10px;
+    }
+
+    .keranjang-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .keranjang-item img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Keranjang</h1>
+  <div id="keranjang">
+    <div class="produk" data-nama="Produk A" data-harga="100000" data-gambar="https://via.placeholder.com/100">
+      <img src="cake1.jpg" alt="Produk A">
+      <p>Produk A</p> 
+      <p>Rp100.000</p>
+    </div>
+  </div>
+
+  <div class="checkout">
+    <h2>Checkout</h2>
+    <div id="checkoutList"></div>
+  </div>
+
+  <script>
+    const katalog = document.getElementById('keranjang');
+    const keranjangList = document.getElementById('checkoutList');
+
+    katalog.addEventListener('click', function(e) {
+      const produk = e.target.closest('.produk');
+      if (produk) {
+        const nama = produk.getAttribute('data-nama');
+        const harga = produk.getAttribute('data-harga');
+        const gambar = produk.getAttribute('data-gambar');
+
+        const item = document.createElement('div');
+        item.classList.add('checkout-item');
+        item.innerHTML = `
+          <img src="${gambar}" alt="${nama}">
+          <div>
+            <p><strong>${nama}</strong></p>
+            <p>Rp${Number(harga).toLocaleString()}</p>
+          </div>
+        `;
+
+        keranjangList.appendChild(item);
+      }
+    });
+  </script>
+
+</body>
+</html>
