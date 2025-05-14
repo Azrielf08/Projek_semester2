@@ -1,58 +1,102 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Metode Pembayaran</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran</title>
+
+   <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="theme/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="theme/dist/css/adminlte.min.css">
 </head>
 <body>
-  <div class="container">
-    <h2>Metode pembayaran</h2>
+  <section class="content" style= "margin-left: 430px;">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Pembayaran</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Nama</label>
+                    <input type="name" class="form-control" id="exampleInputPassword1" placeholder="Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Alamat</label>
+                    <input type="alamat" class="form-control" id="exampleInputPassword1" placeholder="">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Bukti Pembayaran</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radio1">
+                          <label class="form-check-label">Radio</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="radio1" checked>
+                          <label class="form-check-label">Radio checked</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" disabled>
+                          <label class="form-check-label">Radio disabled</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-    <div class="section">
-      <div class="option selected">
-        <img src="cod-icon.png" alt="COD" />
-        <span>Bayar di tempat</span>
-      </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                </div>
+                <!-- /.card-body -->
 
-      <div class="option">
-        <img src="virtual-icon.png" alt="VA" />
-        <span>Bri</span>
-      </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- jQuery -->
+<script src="theme/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="theme/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="theme/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="theme/dist/js/demo.js"></script>
+<!-- Page specific script -->
 
-      <div class="option">
-        <img src="virtual-icon.png" alt="VA" />
-        <span>Bca</span>
-      </div>
-
-      <div class="option">
-        <img src="paylater-icon.png" alt="PayLater" />
-        <span>PayLater <small>Mulai dari Rp3.662/bulan</small></span>
-        <a href="#">Aktifkan</a>
-      </div>
-
-      <div class="option">
-        <img src="ovo-icon.png" alt="OVO" />
-        <span>Lihat semua opsi</span>
-      </div>
-    </div>
-
-    <div class="notice">
-      Dengan memesan, Anda menyetujui <strong>Ketentuan Penggunaan</strong> dan <strong>Kebijakan Privasi</strong> TikTok Shop.
-    </div>
-
-    <div class="discount">
-      <span>Selamat! Anda menghemat Rp25.258 untuk pesanan ini.</span>
-    </div>
-
-    <div class="checkout">
-      <div class="total">
-        <span>Total (1 item)</span>
-        <strong>Rp32.867</strong>
-      </div>
-      <button>Buat Pesanan</button>
-    </div>
-  </div>
+  </form>
+  
 </body>
 </html>

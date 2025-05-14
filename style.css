@@ -1,122 +1,25 @@
-<<<<<<< HEAD
-.background {
-    background-image: url('bread.jpg');
-    background-size: 150px;
-    padding-top: 20%;
-    padding-bottom: 300px;
-    color:#FFF;
+body{
+  margin: 0;
+  padding: 0;
+  background-color: bisque;
 }
-
-.text-center {
-    
+form{
+  width: 600px;
+  margin: 100px auto 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 brown, 0 4px 8px 0 brown;
 }
-=======
-body {
-    font-family: sans-serif;
-    background: #111;
-    color: #fff;
-    margin: 0;
-    padding: 1rem;
-  }
-  
-  .container {
-    max-width: 400px;
-    margin: auto;
-    background: #1a1a1a;
-    padding: 1.5rem;
-    border-radius: 10px;
-  }
-  
-  h2 {
-    margin-bottom: 1rem;
-  }
-  
-  .section {
-    margin-bottom: 1.5rem;
-  }
-  
-  .section-title {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  .option {
-    display: flex;
-    align-items: center;
-    background: #2a2a2a;
-    padding: 0.7rem;
-    margin-bottom: 0.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .option img {
-    width: 24px;
-    margin-right: 1rem;
-  }
-  
-  .option.selected {
-    border: 2px solid #00c851;
-  }
-  
-  .option.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  .option a {
-    color: #00c6ff;
-    margin-left: auto;
-    text-decoration: none;
-    font-size: 0.9rem;
-  }
-  
-  .notice {
-    font-size: 0.8rem;
-    color: #ccc;
-    margin: 1rem 0;
-  }
-  
-  .discount {
-    background: #330000;
-    color: #ff6666;
-    padding: 0.8rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .checkout {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .checkout .total {
-    font-size: 1rem;
-  }
-  
-  .checkout button {
-    background: #00c851;
-    color: white;
-    border: none;
-    padding: 0.7rem 1rem;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .footer {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #aaa;
-  }
-  
-  .footer .tokopedia {
-    color: #00c851;
-    font-weight: bold;
-  }
->>>>>>> eceb7a2f2c6fe82d7362d49ae9ee025d058b8828
+h1{
+  text-align: center;
+}
+.box1{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin: 10px 0 15px 0;
+}
+div1{
+  display: inline-block;
+}
