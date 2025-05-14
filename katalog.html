@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Katalog</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -72,65 +72,68 @@
     </div>
 
     <div class="card" style="width: 18rem; margin-top: 100px; margin-left:37px;">
-      <img src="cake1.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Cake</p>
-        <p>Rp. 35.000</p>
-        <button onclick="tambahKeKeranjang()" class="btn btn-primary">Tambahkan ke Keranjang</button>
-      </div>
+        <img src="cake1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5>Cake</h5>
+            <p>Rp35.000</p>
+            <button onclick="addToCart('Cake', 35000, 'cake1.jpg')" class="btn btn-primary">Tambah ke Keranjang</button>
+        </div>
     </div>
-    <div class="card" style="width: 18rem; margin-top: -475px; margin-left: 422px;">
-      <img src="cheescake.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p>Cheseecake</p>
-        <p>Rp. 45.000</p>
-        <button onclick="tambahKeKeranjang()" class="btn btn-primary">Tambahkan ke Keranjang</button>
-      </div>
+    <div class="card" style="width: 18rem; margin-top: -465px; margin-left: 422px;">
+        <img src="cheescake.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5>Cheescake</h5>
+            <p>Rp45.000</p>
+            <button onclick="addToCart('Cheescake', 45000, 'cheescake.jpg')" class="btn btn-primary">Tambah ke Keranjang</button>
+        </div>
     </div>
-    <div class="card" style="width: 18rem; margin-top: -475px; margin-left: 810px;">
+    <div class="card" style="width: 18rem; margin-top: -465px; margin-left: 810px;">
       <img src="cake2.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <p>Cake</p>
-        <p>Rp. 45.000</p>
-        <button onclick="tambahKeKeranjang()" class="btn btn-primary">Tambahkan ke Keranjang</button>
+        <h5>Cake</h5>
+        <p>Rp.45.000</p>
+        <button onclick="addToCart('Cake', 45000, 'cake2.jpg')" class="btn btn-primary">Tambahkan ke Keranjang</button>
       </div>
     </div>
     <div class="card" style="width: 18rem; margin-top: 65px; margin-left:37px;">
       <img src="cupcake1.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <p>Cupcake</p>
-        <p>Rp. 35.000</p>
-        <button onclick="tambahKeKeranjang()" class="btn btn-primary">Tambahkan ke Keranjang</button>
+        <h5>Cupcake</h5>
+        <p>Rp.35.000</p>
+        <button onclick="addToCart('Cupcake', 35000, 'cupcake1.jpg')" class="btn btn-primary">Tambahkan ke Keranjang</button>
       </div>
     </div>
-    <div class="card" style="width: 18rem; margin-top: -475px; margin-left: 422px;">
+    <div class="card" style="width: 18rem; margin-top: -465px; margin-left: 422px;">
       <img src="croissant.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <p>Croissant</p>
-        <p>Rp. 45.000</p>
-        <button onclick="tambahKeKeranjang()" class="btn btn-primary">Tambahkan ke Keranjang</button>
+        <h5>Croissant</h5>
+        <p>Rp.45.000</p>
+        <button onclick="addToCart('Croissant', 45000, 'croissant.jpg')" class="btn btn-primary">Tambahkan ke Keranjang</button>
       </div>
     </div>
-    <div class="card" style="width: 18rem; margin-top: -475px; margin-left: 810px;">
+    <div class="card" style="width: 18rem; margin-top: -465px; margin-left: 810px;">
       <img src="cupcake2.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <p>Cupcake</p>
-        <p>Rp. 45.000</p>
-        <button onclick="tambahKeKeranjang()" class="btn btn-primary">Tambahkan ke Keranjang</button>
+        <h5>Cupcake</h5>
+        <p>Rp.45.000</p>
+        <button onclick="addToCart('Cupcake', 45000, 'cupcake2.jpg')" class="btn btn-primary">Tambahkan ke Keranjang</button>
       </div>
     </div>
 </div>
 
 <script>
-  let jumlahItem = 0;
-
-function tambahKeKeranjang() {
-  jumlahItem++;
-  const badge = document.getElementById('cart-badge');
-  badge.innerText = jumlahItem;
-  badge.style.display = 'inline-block';
-}
-</script>
+    function addToCart(name, price, image) {
+      // Ambil data keranjang yang sudah ada (jika ada), atau buat array baru
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      // Buat objek produk baru
+      let product = { name: name, price: price, image: image };
+      // Tambahkan produk ke array
+      cart.push(product);
+      // Simpan kembali ke localStorage sebagai string JSON
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " berhasil ditambahkan ke keranjang!");
+    }
+</script> 
 
     <!-- jQuery -->
 <script src="theme/plugins/jquery/jquery.min.js"></script>

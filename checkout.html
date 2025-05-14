@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -35,26 +35,9 @@
     <div class="row" style="margin-left: 230px;">
       <div class="col-9">
         <div class="card" style="margin-top: 90px;"> 
-
-            <h2>Rincian Pembayaran</h2>
-            <div id="paymentDetails" style="display:none;">
-              <h3>Detail Pembayaran:</h3>
-              <p>Anda telah membeli <span id="detailProductName"></span> dengan harga <span id="detailProductPrice"></span>.</p>
-            </div>
-
-            <script>
-              document.getElementById('payButton').addEventListener('click', function() {
-                  // Ambil data produk
-                  var productName = document.getElementById('productName').innerText;
-                  var productPrice = document.getElementById('productPrice').innerText;
-        
-                  // Tampilkan rincian pembayaran
-                  document.getElementById('detailProductName').innerText = productName;
-                  document.getElementById('detailProductPrice').innerText = productPrice;
-                  document.getElementById('paymentDetails').style.display = 'block';
-              });
-            </script>
-
+          <div class="text" style="margin-left: 10px; margin-top: 10px;">
+            <h5>Produk ini akan dikirimkan kepada:</h5>
+          </div>
           <div class="card-body">
             <div class="form-group">
               <label>Nama:</label>
