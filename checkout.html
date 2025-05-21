@@ -48,42 +48,41 @@
               <label>Alamat:</label>
               <input type="text" class="form-control my-colorpicker1">
             </div>
-          
-            <!-- Date dd/mm/yyyy -->
-            <div class="form-group">
-              <label>Tanggal:</label>
-          
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+
+            <!-- Date and time -->
+                <div class="form-group">
+                  <label>Waktu:</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime"/>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
                 </div>
-                <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-              </div>
-              <!-- /.input group -->
-            </div>
-            <!-- /.form group -->
+                <!-- /.form group -->
+
           
             <!-- phone mask -->
-            <div class="form-group">
-              <label>No.Telp:</label>
+                <div class="form-group">
+                  <label>No.Telp:</label>
 
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <input type="text" class="form-control"
+                           data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
+                  </div>
+                  <!-- /.input group -->
                 </div>
-                <input type="text" class="form-control"
-                       data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
-              </div>
-              <!-- /.input group -->
-            </div>
-            <!-- /.form group -->
+                <!-- /.form group -->
               <button type="submit" class="btn btn-info float-right">Simpan</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-   
+  
 </body>
 
 <!-- jQuery -->
@@ -114,5 +113,12 @@
 <!-- AdminLTE for demo purposes -->
 <script src="theme/dist/js/demo.js"></script>
 <!-- Page specific script -->
+
+<script>
+  //Date and time picker
+    $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+  // Intl US phone mask
+    $('[data-mask]').inputmask()
+</script>
 </body>
 </html>
