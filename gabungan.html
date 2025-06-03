@@ -13,21 +13,13 @@
       padding: 0;
       scroll-behavior: smooth;
       font-family: 'Segoe UI', sans-serif;
-      background: url('roti toko.jpeg') no-repeat ;
-      background-size:contain;
+      background: #fff;
     }
-    .overlay {
-      backdrop-filter: blur(8px);
-      background-color: rgba(0, 0, 0, 0.4);
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
-    }
+
     header {
       position: sticky;
       top: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgb(255, 69, 212);
       padding: 15px 40px;
       display: flex;
       justify-content: space-between;
@@ -35,23 +27,53 @@
       z-index: 100;
     }
     header h2 {
-      color: #fff;
+      color: #ffffff;
       margin: 0;
     }
     nav a {
       margin: 0 10px;
-      color: #ffefd5;
+      color: #fffdfd;
       text-decoration: none;
       font-weight: bold;
     }
     nav a:hover {
-      color: white;
+      color: rgb(255, 253, 253);
     }
+
     .section {
-      min-height: 100vh;
       padding: 80px 20px;
-      color: white;
     }
+
+    /* HOME SECTION */
+    #home {
+      position: relative;
+      background: url('roti toko.jpeg') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    #home .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
+
+    #home .hero-text {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 700px;
+    }
+
     .btn-main {
       background: #dc4e4e;
       border: none;
@@ -59,6 +81,7 @@
       color: white;
       border-radius: 6px;
     }
+
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -69,6 +92,13 @@
       height: 200px;
       object-fit: cover;
     }
+
+    /* ABOUT SECTION */
+    #about {
+      background-color: #222;
+      color: white;
+    }
+
     .about-section {
       display: flex;
       flex-wrap: wrap;
@@ -76,38 +106,54 @@
       align-items: center;
       justify-content: center;
     }
-    .about-text { max-width: 500px; }
+    .about-text {
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 10px;
+    }
     .about-social a {
       margin-right: 15px;
       color: white;
       font-size: 1.5em;
     }
+
+    hr {
+      border: none;
+      border-top: 2px solid #ccc;
+      margin: 60px auto;
+      width: 80%;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
-      background: rgba(0,0,0,0.6);
+      background: rgb(252, 99, 216);
       color: white;
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
   <header>
     <h2>First Bites</h2>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#katalog">Katalog</a>
-      <a href="#about">Tentang Kami</a>
+      <a href="sign-in.html" class="login-button">Sign In</a>
+      <a href="gabungan.html">Home</a>
+      <a href="katalog.html">Katalog</a>
+      <a href="About-us.html">Tentang Kami</a>
     </nav>
   </header>
 
-  <section id="home" class="section text-center">
-    <h1>Rasakan manisnya kebahagiaan dalam setiap gigitan</h1>
-    <p>Kami menyediakan berbagai pilihan kue manis dan gurih untuk melengkapi momen spesial Anda.</p>
-    <a href="#katalog.html" class="btn btn-main">Belanja Sekarang</a>
+  <section id="home">
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1 class="mb-4">Rasakan manisnya kebahagiaan dalam setiap gigitan</h1>
+      <p class="mb-4">Kami menyediakan berbagai pilihan kue manis dan gurih untuk melengkapi momen spesial Anda.</p>
+      <a href="katalog.html" class="btn btn-main">Belanja Sekarang</a>
+    </div>
   </section>
 
-  <section id="katalog" class="section">
+  <section id="katalog" class="section bg-light text-dark">
     <h2 class="text-center">Katalog Produk</h2>
     <div class="product-grid">
       <div class="card">
@@ -119,7 +165,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="cheescake.jpg" class="card-img-top" alt="Cheescake">
+        <img src="Chessecake.jpeg" class="card-img-top" alt="Cheescake">
         <div class="card-body text-dark">
           <h5>Cheescake</h5>
           <p>Rp45.000</p>
@@ -145,12 +191,15 @@
     </div>
   </section>
 
+  <hr>
+
   <section id="about" class="section">
-    <h2 class="text-center">Tentang Kami</h2>
+    <h1 class="text-center">Tentang Kami</h1>
     <div class="about-section">
       <div class="about-text">
-        <h3>Every Bite is Bliss!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus quae doloribus omnis neque vero vel ut nostrum accusamus dolores?</p>
+        <h2>Every Bite is Bliss!</h2>
+        <h3>Passion, Quality & Sweet Moments</h3>
+        <p>Di First Bites, kami percaya setiap gigitan harus menjadi perayaan rasa dan cinta. Kami menghadirkan kue segar buatan tangan, dipanggang dengan bahan berkualitas terbaik untuk setiap rumah. Baik untuk momen spesial maupun sebagai camilan manis, berbagai varian kue kami siap menghadirkan senyum di setiap momen. Bergabunglah bersama kami dalam perjalanan rasa manis ini.</p>
         <div class="about-social">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
