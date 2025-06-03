@@ -55,36 +55,200 @@
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+  }
+  .container {
+    background: #fff;
+    width: 460px;
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+    padding: 25px 30px 40px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #0a0a23;
+  }
+  header p {
+    margin: 6px 0 0;
+    color: #666;
+    font-weight: 500;
+  }
+  .order-summary {
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+  }
+  .order-summary h2 {
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+  }
+  .product {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+  }
+  .product img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .product-info {
+    flex-grow: 1;
+  }
+  .product-info h3 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+  }
+  .product-info .quantity {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  .product-price {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #007aff;
+  }
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .payment-methods {
+    margin-top: 15px;
+  }
+  .payment-methods h2 {
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+  }
+  .methods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .method {
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    background-color: #fafafa;
+  }
+  .method.selected {
+    border-color: #007aff;
+    background-color: #e6f0ff;
+  }
+  .method:hover {
+    border-color: #007aff;
+  }
+  .method img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 18px;
+  }
+  .method-info {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+  }
+  .confirm-btn {
+    margin-top: 30px;
+    background-color: #007aff;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 15px 0;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,122,255,0.4);
+    transition: background-color 0.3s ease;
+  }
+  .confirm-btn:disabled {
+    background-color: #8fbcef;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  .confirm-btn:hover:not(:disabled) {
+    background-color: #005ecb;
+  }
+  .payment-result {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #28a745;
+    display: none;
+    animation: fadeIn 0.6s ease forwards;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
 </style>
 </head>
 <body>
-  <div class="container mt-5">
+  <div class="container mt-10">
 
-    <h3><b>Detail Pesanan</b></h3>
-    <div id="product-list"></div>
-    <div class="total mt-3 mb-5">Total: Rp <span id="total-harga">0</span></div>
+    <h4><b>Detail Pesanan</b></h4>
+    <div id="product-list" style="margin-top: 15px"></div>
+    <div class="total mb-5">Total: Rp <span id="total-harga">0</span></div>
 
-    <div class="form-section">
-      <div class="text" style="margin-top: -25px;">
-        <h5><b>Metode Pembayaran</b></h5>
+    <section class="payment-methods" aria-label="Select payment method">
+      <h2>Metode Pembayaran</h2>
+      <div class="methods-list" role="radiogroup" aria-required="true" tabindex="0" style="margin-top: 10px;">
+        <div tabindex="0" class="method" role="radio" aria-checked="false" data-method="e-wallet">
+          <img src="DANA Logo vector (_cdr).jpeg" alt="DANA logo"/>
+          <div class="method-info">DANA</div>
+        </div>
+        <div tabindex="0" class="method" role="radio" aria-checked="false" data-method="bank-transfer">
+          <img src="Bank BRI LOGO.jpeg" alt="Bank transfer icon"/>
+          <div class="method-info">Bank Transfer</div>
+        </div>
+        <div tabindex="0" class="method" role="radio" aria-checked="false" data-method="credit-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Credit card icon"/>
+          <div class="method-info">Credit Card</div>
+        </div>
       </div>
-    <div class="form-group" style="margin-top: 30px;">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="radio1" value="QRIS" id="metode-pembayaran">
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="radio1" value="Dana" id="metode-pembayaran">
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="radio1" value="BRI" id="metode-pembayaran">
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="radio1" value="COD" id="metode-pembayaran">
-        </div>
-    </div>
-    </div>
+    </section>
 
-    <div class="form-section">
+    <button class="confirm-btn" disabled aria-disabled="true">Bayar Sekarang</button>
+
+    <div class="payment-result" role="alert" aria-live="polite">Pembayaran Berhasil! Terima kasih atas pembelian Anda.</div>
+      
+    <div class="form-section" style="margin-top: 30px;">
       <div class="text" style="margin-top: -25px;">
         <h5><b>Informasi Pengiriman</b></h5>
       </div>
@@ -102,23 +266,33 @@
       <input type="tel" id="telepon" class="form-control" required>
     </div>
     <div class="mb-3">
-      <label>Tanggal Pemesanan</label>
-      <input type="date" id="tanggal" class="form-control" required>
+      <label>Tanggal & Jam Pemesanan</label>
+      <div class="d-flex gap-2">
+        <input type="date" id="tanggal" class="form-control" required>
+        <input type="time" id="jam" class="form-control" required>
+      </div>
     </div>
     <div class="form-group">
         <label for="exampleInputFile">Bukti Pembayaran</label>
             <div class="input-group">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="exampleInputFile">
+              <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="exampleInputFile" accept="image/*" onchange="previewGambar(event)">
                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                 </div>
                 <div class="input-group-append">
                     <span class="input-group-text">Upload</span>
                 </div>
             </div>
-        </div>
-    </form>
-    <button type="submit" class="btn btn-primary">Buat Pesanan</button>
+            <div id="preview-container" class="mt-3">
+              <img id="preview-image" src="" alt="Preview" style="display: none; max-width: 200px; border-radius: 10px;"/>
+            </div>
+    </div>
+  </form>
+     <a class="pesan" href="https://wa.me/6285727762188" target="_blank" rel="noopener noreferrer">
+      <button style="padding: 10px 20px;  background-color: #25D366; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Buat Pesanan
+      </button>
+     </a>
   </div>
     </div>
 
@@ -146,6 +320,58 @@
     });
     totalHarga.textContent = total.toLocaleString();
 
+  const methods = document.querySelectorAll('.method');
+  const payButton = document.querySelector('.confirm-btn');
+  const paymentResult = document.querySelector('.payment-result');
+  let selectedMethod = null;
+
+  methods.forEach(method => {
+    method.addEventListener('click', () => {
+      selectMethod(method);
+    });
+    method.addEventListener('keydown', (e) => {
+      if(e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        selectMethod(method);
+      }
+    });
+  });
+
+  function selectMethod(method) {
+    // Deselect all
+    methods.forEach(m => {
+      m.classList.remove('selected');
+      m.setAttribute('aria-checked', 'false');
+    });
+    // Select the clicked
+    method.classList.add('selected');
+    method.setAttribute('aria-checked', 'true');
+    selectedMethod = method.dataset.method;
+    payButton.removeAttribute('disabled');
+    payButton.setAttribute('aria-disabled', 'false');
+    paymentResult.style.display = 'none';
+  }
+
+  payButton.addEventListener('click', () => {
+    if(!selectedMethod) {
+      alert('Please select a payment method.');
+      return;
+    }
+
+    // Simulate payment processing delay
+    payButton.disabled = true;
+    payButton.textContent = 'Memproses...';
+    paymentResult.style.display = 'none';
+
+    setTimeout(() => {
+      payButton.textContent = 'Bayar Sekarang';
+      paymentResult.style.display = 'block';
+      // Optionally disable payment button again after success
+      payButton.disabled = true;
+      payButton.setAttribute('aria-disabled', 'true');
+    }, 1800);
+  });
+
     function kirimPesanan(e) {
       e.preventDefault();
 
@@ -153,18 +379,30 @@
       const alamat = document.getElementById("alamat").value;
       const telepon = document.getElementById("telepon").value;
       const tanggal = document.getElementById("tanggal").value;
-      const metode = document.querySelector('input[name="radio1"]:checked')?.value;
-
-      if (!metode) {
-        alert("Silakan pilih metode pembayaran.");
-        return;
-      }
-
+      const jam = document.getElementById("jam").value;
+       
       alert(`Terima kasih, ${nama}! Pesanan Anda berhasil dibuat.`);
 
       // Kosongkan keranjang
       localStorage.removeItem("cart");
       window.location.href = "katalog.html"; // Kembali ke katalog atau halaman lain
+    }
+
+    function previewGambar(event) {
+      const file = event.target.files[0];
+      const previewImage = document.getElementById("preview-image");
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          previewImage.src = e.target.result;
+          previewImage.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      } else {
+        previewImage.src = "";
+        previewImage.style.display = "none";
+      }
     }
   </script>
 </body>
