@@ -10,7 +10,7 @@ if (isset($_POST['simpan'])) {
     $koneksi->query("INSERT INTO mengelola_pesanan (nama_produk, jumlah, total_harga, tanggal_pembelian) 
                     VALUES ('$nama_produk', $jumlah, $total_harga, '$tanggal')");
 
-    header("Location: pesanan.php");
+    header("Location: Pesanan.php");
 }
 ?>
 
