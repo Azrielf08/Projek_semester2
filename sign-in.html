@@ -26,7 +26,7 @@
 
       <form action="theme/index3.html" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" id="loginEmail" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" id="loginPassword" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -53,7 +53,7 @@
           <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
+          </div> 
           <!-- /.col -->
         </div>
       </form>
@@ -76,5 +76,33 @@
 <script src="theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="theme/dist/js/adminlte.min.js"></script>
+
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Hindari submit default
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+
+    if (!email || !password) {
+      alert("Email dan password wajib diisi!");
+      return;
+    }
+
+    const username = email.split("@")[0]; // Gunakan bagian sebelum @ sebagai username
+
+    // Simpan ke localStorage
+    const profileData = {
+      email: email,
+      username: username,
+      bio: "",
+      image: "profile.jpeg"
+    };
+    localStorage.setItem("profileData", JSON.stringify(profileData));
+
+    // Redirect ke profile.html
+    window.location.href = "profile.html";
+  });
+</script>
 </body>
 </html>

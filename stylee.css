@@ -8,7 +8,11 @@
 .section {
     width: 100%;
     min-height: 100vh;
+<<<<<<< HEAD
     background-color: #ddd;
+=======
+    background-color: #ffdec7;
+>>>>>>> 4b2e231f8cec82ee4be39dc3328a0fbb9b3c12ba
 }
 .container {
     width: 80%;
@@ -34,7 +38,11 @@
 }
 .content-section .content h3 {
     margin-top: 20px;
+<<<<<<< HEAD
     color: #5d5d5d;
+=======
+    color: #000000;
+>>>>>>> 4b2e231f8cec82ee4be39dc3328a0fbb9b3c12ba
     font-size: 20px;
 }
 .content-section .content p {

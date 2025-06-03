@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil & Edit Profil - AdminLTE</title>
+  <!-- AdminLTE CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <style>
+    .profile-container {
+      max-width: 450px;
+      margin: 30px auto;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #007bff;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body class="hold-transition layout-top-nav">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <ul class="navbar-nav">
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="profile.html" class="nav-link"><i class="fas fa-user"></i> Profil</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="Index.html" class="nav-link"><i class="fas fa-home "></i> Home</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="container profile-container">
+          <!-- Profile Display -->
+          <div id="profileDisplay" class="card card-primary card-outline">
+            <div class="card-body box-profile text-center">
+              <img
+                id="profileImage"
+                class="profile-img"
+                src=""
+                alt="User profile picture"
+              />
+              <h3 id="displayUsername" class="profile-username text-center"></h3>
+              <p id="displayEmail" class="text-muted text-center"></p>
+              <p id="displayBio" class="text-center"></p>
+
+              <button id="editBtn" class="btn btn-primary btn-block">
+                <i class="fas fa-edit mr-2"></i>Edit Profil
+              </button>
+            </div>
+          </div>
+
+          <!-- Edit Form (hidden by default) -->
+          <div id="profileEdit" class="card card-primary card-outline" style="display:none;">
+            <form id="editForm" novalidate>
+              <div class="card-header">
+                <h3 class="card-title">Edit Profil</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group text-center">
+                  <img
+                    id="editProfileImagePreview"
+                    class="profile-img"
+                    src=""
+                    alt="Preview profile image"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="usernameInput">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="usernameInput"
+                    placeholder="Masukkan username"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="emailInput">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailInput"
+                    placeholder="Masukkan email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="bioInput">Bio</label>
+                  <textarea
+                    class="form-control"
+                    id="bioInput"
+                    rows="3"
+                    placeholder="Masukkan bio"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="imageInput">Ubah Foto Profil</label>
+                  <input type="file" class="form-control-file" id="imageInput" accept="image/*"/>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-success">
+                  <i class="fas fa-save mr-2"></i>Simpan
+                </button>
+                <button type="button" id="cancelBtn" class="btn btn-secondary ml-2">
+                  <i class="fas fa-times mr-2"></i>Batal
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+      <div class="float-right d-none d-sm-inline">Versi 1.0.0</div>
+      <strong>&copy; 2023 <a href="#">Your Company</a>.</strong> All rights reserved.
+    </footer>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
+
+  <script>
+    const profileKey = 'profileData';
+
+    const profileDisplay = document.getElementById('profileDisplay');
+    const profileEdit = document.getElementById('profileEdit');
+
+    const editBtn = document.getElementById('editBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const editForm = document.getElementById('editForm');
+
+    const displayUsername = document.getElementById('displayUsername');
+    const displayEmail = document.getElementById('displayEmail');
+    const displayBio = document.getElementById('displayBio');
+    const profileImage = document.getElementById('profileImage');
+
+    const usernameInput = document.getElementById('usernameInput');
+    const emailInput = document.getElementById('emailInput');
+    const bioInput = document.getElementById('bioInput');
+    const imageInput = document.getElementById('imageInput');
+    const editProfileImagePreview = document.getElementById('editProfileImagePreview');
+
+    // Default profile data
+    const defaultProfile = {
+      username: 'John Doe',
+      email: 'johndoe@example.com',
+      bio: 'Software developer with passion for creating awesome web apps.',
+      image:
+        'https://adminlte.io/themes/v3/dist/img/user4-128x128.jpg',
+    };
+
+    // Load profile from localStorage or defaults
+    function loadProfile() {
+      const stored = localStorage.getItem(profileKey);
+      let profile = defaultProfile;
+      try {
+        if (stored) {
+          profile = JSON.parse(stored);
+        }
+      } catch {
+        profile = defaultProfile;
+      }
+      // Set display
+      displayUsername.textContent = profile.username || defaultProfile.username;
+      displayEmail.textContent = profile.email || defaultProfile.email;
+      displayBio.textContent = profile.bio || 'Tidak ada bio';
+      profileImage.src = profile.image || defaultProfile.image;
+    }
+
+    // Populate edit form based on display values
+    function populateEditForm() {
+      usernameInput.value = displayUsername.textContent;
+      emailInput.value = displayEmail.textContent;
+      bioInput.value = displayBio.textContent === 'Tidak ada bio' ? '' : displayBio.textContent;
+      editProfileImagePreview.src = profileImage.src;
+      imageInput.value = '';
+    }
+
+    // On edit button click
+    editBtn.addEventListener('click', () => {
+      populateEditForm();
+      profileDisplay.style.display = 'none';
+      profileEdit.style.display = 'block';
+    });
+
+    // On cancel button click
+    cancelBtn.addEventListener('click', () => {
+      profileEdit.style.display = 'none';
+      profileDisplay.style.display = 'block';
+    });
+
+    const logoutBtn = document.createElement('button');
+    logoutBtn.className = 'btn btn-danger mt-3';
+    logoutBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+    logoutBtn.onclick = () => {
+      localStorage.setItem("isLoggedIn", "false");
+      window.location.href = 'sign-in.html';
+    };
+    document.querySelector('.box-profile').appendChild(logoutBtn);
+
+    // Preview new profile image
+    imageInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (evt) {
+          editProfileImagePreview.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Form submit: save new profile data to localStorage and update display
+    editForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const username = usernameInput.value.trim();
+      const email = emailInput.value.trim();
+      const bio = bioInput.value.trim();
+
+      if (!username || !email) {
+        alert('Username dan Email wajib diisi!');
+        return;
+      }
+
+      // Get image: either new uploaded or old preview
+      const image = editProfileImagePreview.src;
+
+      const newProfile = { username, email, bio, image };
+
+      // Save to localStorage
+      localStorage.setItem(profileKey, JSON.stringify(newProfile));
+
+      // Update display area
+      displayUsername.textContent = username;
+      displayEmail.textContent = email;
+      displayBio.textContent = bio || 'Tidak ada bio';
+      profileImage.src = image;
+
+      // Hide edit form and show display
+      profileEdit.style.display = 'none';
+      profileDisplay.style.display = 'block';
+    });
+
+    // Initialize page by loading profile
+    loadProfile();
+  </script>
+</body>
+</html>
+</content>
+</create_file>
