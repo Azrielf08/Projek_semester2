@@ -131,6 +131,40 @@
       background: rgb(166, 132, 91);
       color: white;
     }
+
+     .cart-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+  }
+
+  .cart-icon {
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: rgb(116, 13, 13);
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 14px;
+    display: none;
+  }
+
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 20px rgba(255, 182, 193, 0.5); /* Pink light shadow */
+  }
   </style>
 </head>
 <body>
@@ -157,8 +191,8 @@
   <section id="checkout" class="section bg-light text-dark">
     <h2 class="text-center">Katalog Produk</h2>
     <div class="product-grid">
-      <div class="card">
-        <img src="cake.jpg" class="card-img-top" alt="Cake">
+         <div class="card-body">
+        <img src="cake.jpg" class="card-img-top" alt="Cheescake">
         <div class="card-body text-dark">
           <h5></h5>
           <p></p>
@@ -171,20 +205,18 @@
           <p></p>
         </div>
       </div>
-      <div class="card">
-        <img src="cupcake.jpg" class="card-img-top" alt="Cupcake">
+      <div class="card-body">
+        <img src="cupcake.jpg" class="card-img-top" alt="Cheescake">
         <div class="card-body text-dark">
           <h5></h5>
           <p></p>
-          
         </div>
       </div>
-      <div class="card">
-        <img src="Kukis.jpeg" class="card-img-top" alt="Cookies">
+         <div class="card-body">
+        <img src="cinnamon rools.jpeg" class="card-img-top" alt="Cheescake">
         <div class="card-body text-dark">
           <h5></h5>
           <p></p>
-
         </div>
       </div>
     </div>
