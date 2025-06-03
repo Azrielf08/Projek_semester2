@@ -39,6 +39,9 @@
 <body>
 
   <h1>Keranjang Belanja Anda</h1>
+
+  <button onclick="clearCart()" style="margin-bottom: 20px; background-color: darkred; color: white; padding: 8px 16px; border: none; border-radius: 4px;">Hapus Keranjang</button>
+  
   <div id="cart-items"></div>
 
   <div id="summary">
@@ -56,6 +59,14 @@
     const cartItemsDiv = document.getElementById("cart-items");
     const selectedProductsDiv = document.getElementById("selected-products");
     const selectedTotalSpan = document.getElementById("selected-total");
+
+    function clearCart() {
+      if (confirm("Apakah Anda yakin ingin menghapus semua produk dari keranjang")) {
+        cart = [];
+        localStorage.removeItem("cart");
+        renderCart();
+      }
+    }
 
     function renderCart() {
       cartItemsDiv.innerHTML = "";
