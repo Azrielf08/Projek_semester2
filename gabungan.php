@@ -23,7 +23,7 @@
       padding: 0;
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background: url('roti toko.jpeg') no-repeat center center fixed;
+      background: url('roti toko.jpeg') no-repeat center;
       background-size: cover;
       height: 100vh;
       overflow: hidden;
