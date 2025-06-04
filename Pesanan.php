@@ -87,7 +87,7 @@ $data = $koneksi->query("SELECT * FROM mengelola_pesanan");
           <td><?= $no++ ?></td>
           <td><?= htmlspecialchars($pesanan['nama_produk']) ?></td>
           <td><?= htmlspecialchars($pesanan['jumlah_produk']) ?></td>
-          <td>Rp <?= number_format($pesanan['total_harga'], 0, ',', '.') ?></td>
+          <td><?= number_format($pesanan['total_harga'], 0, ',', '.') ?></td>
           <td><?= htmlspecialchars($pesanan['tanggal_pembelian']) ?></td>
           <td>
             <a href="edit_pesanan.php?id=<?= $pesanan['id'] ?>">

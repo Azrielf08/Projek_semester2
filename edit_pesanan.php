@@ -15,7 +15,7 @@ if (isset($_POST['update'])) {
         total_harga = $total_harga 
         WHERE id = $id");
 
-    header("Location: pesanan.php");
+    header("Location: Pesanan.php");
 }
 ?>
 
